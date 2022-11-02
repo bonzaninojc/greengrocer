@@ -67,8 +67,8 @@ List<OrderModel> orders = [
       copyPaste: '94a65366-01ef-4fc9-8021-9a8fa8f108ab',
       orderDate: DateTime.now(),
       items: cartList,
-      id: '1f9f9476-c516-4acd-9ff9-e270c290b683',
+      id: '9ff9-e270c290b683',
       overdueDate: DateTime.parse("2023-10-30 11:00:00.000"),
-      status: 'panding_payment',
+      status: 'pending_payment',
       total: 0)
 ];

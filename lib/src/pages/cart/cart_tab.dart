@@ -5,6 +5,7 @@ import 'package:greengrocer/src/config/custom_colors.dart';
 import 'package:greengrocer/src/models/cart_item_model.dart';
 import 'package:greengrocer/src/models/item_model.dart';
 import 'package:greengrocer/src/pages/cart/components/cart_tile.dart';
+import 'package:greengrocer/src/pages/orders/components/payment_dialog.dart';
 import 'package:greengrocer/src/services/utils_services.dart';
 import 'package:greengrocer/src/config/app_data.dart' as appData;
 
@@ -88,7 +89,15 @@ class _CartTabState extends State<CartTab> {
                               borderRadius: BorderRadius.circular(18))),
                       onPressed: () async {
                         bool? confirmationOrder = await showOrderConfirmation();
-                        print(confirmationOrder);
+                        if (confirmationOrder ?? false) {
+                          showDialog(
+                              context: context,
+                              builder: ((context) {
+                                return PaymentDialog(
+                                  order: appData.orders.first,
+                                );
+                              }));
+                        }
                       },
                       child: const Text(
                         "Confirmar Pedido",
